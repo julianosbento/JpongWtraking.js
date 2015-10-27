@@ -3,16 +3,13 @@ $(document).ready(function () {
     init_game();
 });
 
-//pega o div video
 var video = document.getElementById('video');
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
 if (navigator.getUserMedia) navigator.getUserMedia({video: true}, handleVideo, videoError);
 function handleVideo(stream) {video.src = window.URL.createObjectURL(stream);}
 function videoError(e) {
-	
 	window.stop();
-	document.write("<Title>Error</title>Camera error. This can happen when you don't have a webcam or another problem related to it.");
-	
+	document.write("<Title>Camera error</title>Camera error. This can happen when you don't have a webcam or another problem related to it.");
 }
 
 var tracker = new tracking.ColorTracker(['yellow']);
@@ -142,7 +139,7 @@ function init_game() {
     }});
 	
     // Setup start game event
-    $("#game").click(start_game);
+    $("#game").click(start_game); // $("#game").keypress(start_game); tentar isso
 }
 
 function start_game() {
