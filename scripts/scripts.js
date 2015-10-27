@@ -10,7 +10,9 @@ if (navigator.getUserMedia) navigator.getUserMedia({video: true}, handleVideo, v
 function handleVideo(stream) {video.src = window.URL.createObjectURL(stream);}
 function videoError(e) {
 	window.stop();
-	document.write("Camera error. This can happen when you don't have a webcam or another problem related to it.");}
+	document.write("Camera error. This can happen when you don't have a webcam or another problem related to it.");
+	
+}
 
 var tracker = new tracking.ColorTracker(['yellow']);
 tracking.track('#video', tracker, {camera: true});
